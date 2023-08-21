@@ -5,6 +5,9 @@ on:
         branches:
             - main
 
+env:
+    TEMPLATE_REPO: neurodatascience/testpoppy
+
 jobs:
 
     check-changed-files:
@@ -12,7 +15,6 @@ jobs:
         runs-on: ubuntu-latest
 
         env:
-            TEMPLATE_REPO: neurodatascience/testpoppy
             PATH_CURRENT_REPO: repo_to_check
             PATH_TEMPLATE_REPO: template_repo
 
