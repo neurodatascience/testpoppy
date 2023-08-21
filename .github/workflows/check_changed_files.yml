@@ -5,9 +5,6 @@ on:
         branches:
             - main
 
-env:
-    TEMPLATE_REPO: neurodatascience/testpoppy
-
 jobs:
 
     check-changed-files:
@@ -15,10 +12,11 @@ jobs:
         runs-on: ubuntu-latest
 
         env:
+            TEMPLATE_REPO: neurodatascience/testpoppy
             PATH_CURRENT_REPO: repo_to_check
             PATH_TEMPLATE_REPO: template_repo
 
-        if: ${{ github.repository != env.TEMPLATE_REPO }}
+        if: github.repository_owner == 'neurodatascience' && github.event.repository.name != 'testpoppy'
 
         steps:
 
